@@ -20,3 +20,13 @@ PHRASES = {
       "From *** get the *** attribute and set it to '***'."
 }
 
+# do they want to drill phrases first
+PHRASE_FIRST = False
+if len(sys.argv) == 2 and sys.argv[1] == "english":
+    PHRASE_FIRST = True
+
+# load up the words from the website
+for word in urlopen(WORD_URL).readlines():
+    WORDS.append(word.strip()) 
+
+def convert(snippet, phrase):
